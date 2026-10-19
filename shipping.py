@@ -1,0 +1,18 @@
+
+def shipping_fee(weight_kg):
+    """Return the shipping fee in baht for a parcel.
+
+    Rule 1. Weight must be more than 0 kg.
+    Rule 2. Up to 1 kg costs 40 baht.
+    Rule 3. More than 1 kg up to 5 kg costs 60 baht.
+    Rule 4. Above 5 kg costs 60 baht plus 10 baht
+            for every started kilogram above 5 kg.
+    """
+    if weight_kg < 0:
+        raise ValueError("weight must be more than 0 kg")
+    if weight_kg < 1:
+        return 40
+    if weight_kg <= 5:
+        return 60
+    extra = int(weight_kg - 5)
+    return 60 + 10 * extra
